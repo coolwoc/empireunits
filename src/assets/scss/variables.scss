@@ -1,0 +1,14 @@
+//* Color variables
+$theme-primary: #494949;
+$theme-secondary: #ffffff;
+$theme-tertario: #c8c8c8;
+
+$theme-active: #f9e900;
+$theme-active-inputs: #ff5d73;
+
+//* Mixers
+@mixin border-radius($pixel) {
+  -webkit-border-radius: $pixel;
+  -moz-border-radius: $pixel;
+  border-radius: $pixel;
+}

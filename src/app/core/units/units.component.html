@@ -1,0 +1,111 @@
+<section>
+  <h2>Units Page</h2>
+  <h3>Ages:</h3>
+  <ul class="btn__filter">
+    <li class="btn__filter_list" *ngFor="let item of btnList; let i = index">
+      <a
+        class="list__item"
+        href="javascript:void(0)"
+        [ngClass]="{ active: isActive(item) }"
+        (click)="setAgeFilter(item)"
+        >{{ item.category }}</a
+      >
+    </li>
+  </ul>
+</section>
+<section>
+  <h3>Cost:</h3>
+  <ul class="checkbox__list">
+    <li class="checkbox__list_item">
+      <input type="checkbox" id="wood" name="wood" value="wood" />
+      <label for="wood">Wood</label>
+      <div id="item__wrapper">
+        <input
+          #selectValueWood
+          type="range"
+          class="rank-slider"
+          min="{{ minRange }}"
+          max="{{ maxRange }}"
+          value="{{ valueSelectedWood }}"
+          step="10"
+          (change)="rangeValueFilter(selectValueWood.value, null, null, 'Wood')"
+        />
+        <p class="item__wrapper_value">{{ selectValueWood.value }}</p>
+        <a href="javascritp:void(0)" class="tooltips item__wrapper_tooltips">
+          <span>Min: 0;&ensp;Max: 200</span>
+        </a>
+      </div>
+    </li>
+    <li class="checkbox__list_item">
+      <input type="checkbox" id="food" name="food" value="food" />
+      <label for="food">Food</label>
+      <div id="item__wrapper2">
+        <input
+          #selectValueFood
+          type="range"
+          class="rank-slider"
+          min="{{ minRange }}"
+          max="{{ maxRange }}"
+          value="{{ valueSelectedFood }}"
+          step="10"
+          (change)="rangeValueFilter(null, selectValueFood.value, null, 'Food')"
+        />
+        <p class="item__wrapper_value">{{ selectValueFood.value }}</p>
+        <a href="javascritp:void(0)" class="tooltips item__wrapper_tooltips">
+          <span>Min: 20;&ensp;Max: 200</span>
+        </a>
+      </div>
+    </li>
+    <li class="checkbox__list_item">
+      <input type="checkbox" id="gold" name="gold" value="gold" />
+      <label for="gold">Gold</label>
+      <div id="item__wrapper3">
+        <input
+          #selectValueGold
+          type="range"
+          class="rank-slider"
+          min="{{ minRange }}"
+          max="{{ maxRange }}"
+          value="{{ valueSelectedGold }}"
+          step="10"
+          (change)="rangeValueFilter(null, null, selectValueGold.value, 'Gold')"
+        />
+        <p class="item__wrapper_value">{{ selectValueGold.value }}</p>
+        <a href="#" class="tooltips item__wrapper_tooltips">
+          <span>Min: 50;&ensp;Max: 200</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+</section>
+<section>
+  <table class="table-simple">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Costs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let unit of units$ | async" routerLink="/units/{{ unit.id }}">
+        <td>{{ unit.id }}</td>
+        <td>{{ unit.name }}</td>
+        <td>{{ unit.age }}</td>
+        <td>
+          <span
+            *ngFor="
+              let items of unit.cost | keyvalue;
+              let i = index;
+              last as isLast
+            "
+          >
+            {{ items.key }}: {{ items.value }}
+            <span *ngIf="!isLast">, </span>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

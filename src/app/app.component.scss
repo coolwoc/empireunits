@@ -1,0 +1,12 @@
+@import '../assets/scss/variables';
+
+.app__wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #000 url('../assets/images/age-of-empires.jpg') no-repeat center
+    center fixed;
+  webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

@@ -1,0 +1,21 @@
+@import '../../../assets/scss/variables';
+.unit__detail {
+  width: 50%;
+  .unit__detail_list {
+    .list__item {
+      margin: 0;
+      padding: 10px 0 10px 10px;
+      font-family: Inter-Semi-Bold600;
+      border: 1px solid $theme-primary;
+      border-bottom: none;
+      span {
+        font-family: Inter-Regular400;
+      }
+    }
+    &:last-child {
+      .list__item {
+        border-bottom: 1px solid $theme-primary;
+      }
+    }
+  }
+}

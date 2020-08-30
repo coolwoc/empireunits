@@ -1,0 +1,27 @@
+@import '../../../assets/scss/variables';
+.menu {
+  float: right;
+  padding: 10px;
+  margin-bottom: 35px;
+  //background-color: $theme-primary;
+  background-color: rgba(0, 0, 0, 0.6);
+  @include border-radius(3px);
+  .menu__item {
+    display: inline-block;
+    margin-right: 10px;
+    .menu__item_link {
+      font-size: 20px;
+      color: $theme-secondary;
+      &:hover {
+        border-bottom: 1px solid transparent;
+      }
+      &.link__active {
+        color: $theme-active;
+        border-bottom: 1px solid $theme-active;
+      }
+      &.link__active:hover {
+        border-bottom: 1px solid $theme-active;
+      }
+    }
+  }
+}

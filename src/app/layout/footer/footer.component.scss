@@ -1,0 +1,9 @@
+@import '../../../assets/scss/variables';
+
+p {
+  width: 100%;
+  font-size: 11px;
+  color: $theme-secondary;
+  text-align: center;
+  padding: 10px 0;
+}

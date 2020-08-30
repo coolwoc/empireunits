@@ -1,0 +1,51 @@
+<section>
+  <h2>Unit Detail {{ unitId }}</h2>
+  <ul class="unit__detail">
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Id: <span>{{ (selectedUnit$ | async).id }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Name: <span>{{ (selectedUnit$ | async).name }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Description: <span>{{ (selectedUnit$ | async).description }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">Min Required Age: <span>N/A</span></p>
+    </li>
+    <li
+      *ngFor="let d of (selectedUnit$ | async).cost | keyvalue"
+      class="unit__detail_list"
+    >
+      <p class="list__item">
+        {{ d.key }}: <span>{{ d.value }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Build Time: <span>{{ (selectedUnit$ | async).build_time }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Hit Points: <span>{{ (selectedUnit$ | async).hit_points }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Attack: <span>{{ (selectedUnit$ | async).attack }}</span>
+      </p>
+    </li>
+    <li class="unit__detail_list">
+      <p class="list__item">
+        Accuracy: <span>{{ (selectedUnit$ | async).accuracy }}</span>
+      </p>
+    </li>
+  </ul>
+</section>
