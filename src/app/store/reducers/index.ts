@@ -7,7 +7,6 @@ export interface ReducersState {
   unitsReducer: UnitsState;
 }
 
-/** Reducer injection token which maps reducers */
 export const ROOT_REDUCERS = new InjectionToken<
   ActionReducerMap<ReducersState, Action>
 >('Root reducers token', {
